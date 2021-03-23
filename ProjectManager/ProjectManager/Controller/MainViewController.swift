@@ -23,6 +23,8 @@ final class MainViewController: UIViewController {
         configureConstratins()
         configureThingTableViews()
         fetchData()
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (bool, error) in
+        }
     }
     
     // MARK: - UI

@@ -39,6 +39,7 @@ final class TodoTableView: ThingTableView {
         thing.detailDescription = description
         thing.dateNumber = date
         thing.state = Strings.todoState
+        ThingNotificationManager.setThingNotification(thing)
         do {
             try CoreDataStack.shared.persistentContainer.viewContext.save()
             NetworkManager.create(thing: thing) { _ in }

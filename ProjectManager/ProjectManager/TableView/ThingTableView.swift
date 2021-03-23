@@ -35,6 +35,7 @@ class ThingTableView: UITableView, Draggable, Droppable {
         thing.title = title
         thing.detailDescription = description
         thing.dateNumber = date
+        ThingNotificationManager.updateThingNotification(thing)
         do {
             try CoreDataStack.shared.persistentContainer.viewContext.save()
         } catch {
@@ -45,6 +46,7 @@ class ThingTableView: UITableView, Draggable, Droppable {
     func deleteThing(at indexPath: IndexPath) {
         let thing = list[indexPath.row]
         let id = thing.id
+        ThingNotificationManager.removeThingNotification(thing)
         CoreDataStack.shared.persistentContainer.viewContext.delete(thing)
         do {
             try CoreDataStack.shared.persistentContainer.viewContext.save()

@@ -28,6 +28,7 @@ extension Droppable {
                 thing.state = Strings.doingState
             } else {
                 thing.state = Strings.doneState
+                ThingNotificationManager.removeThingNotification(thing)
             }
             self.insertThing(thing, at: indexPath)
             HistoryManager.insertMoveHistoryWhenInsert(to: tableView)
