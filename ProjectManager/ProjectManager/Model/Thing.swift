@@ -14,6 +14,7 @@ class Thing: NSManagedObject, Codable {
     @NSManaged var detailDescription: String?
     @NSManaged var dateNumber: Double
     @NSManaged var state: String?
+    let creationDate: Double = Double(Date().timeIntervalSince1970)
     var dateString: String {
         return DateFormatter.convertToUserLocaleString(date: date)
     }
